@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
-import { ChevronDown, Heart, Sparkles, Music } from 'lucide-react'
+import { ChevronDown, Heart, Sparkles, Music, Pause } from 'lucide-react'
 import { BIRTHDAY } from '../config'
 import { getImageCandidates, useResolvedImage } from '../lib/images'
-import { playMusic } from '../lib/music'
+import { useMusic, playMusic, pauseMusic } from '../lib/music'
 import { sfx } from '../lib/sfx'
 
 interface HeroStoryProps {
@@ -10,6 +10,8 @@ interface HeroStoryProps {
 }
 
 export function HeroStory({ onScrollDown }: HeroStoryProps) {
+  const { playing } = useMusic()
+
   const heroCandidates = useMemo(() => {
     return [
       '/photos/yab.jpg',
@@ -22,9 +24,14 @@ export function HeroStory({ onScrollDown }: HeroStoryProps) {
 
   const { src: heroSrc, hasImage } = useResolvedImage(heroCandidates)
 
-  const handleStartMusic = () => {
-    sfx.sparkle()
-    void playMusic()
+  const handleToggleMusic = () => {
+    if (playing) {
+      sfx.whoosh()
+      pauseMusic()
+    } else {
+      sfx.sparkle()
+      void playMusic()
+    }
   }
 
   return (
@@ -77,11 +84,26 @@ export function HeroStory({ onScrollDown }: HeroStoryProps) {
       <div className="story-hero__actions">
         <button
           type="button"
-          className="story-btn story-btn--primary"
-          onClick={handleStartMusic}
+          className={`story-btn story-btn--primary${playing ? ' is-playing' : ''}`}
+          onClick={handleToggleMusic}
+          aria-label={playing ? 'Stop or pause celebration music' : 'Play celebration melody'}
         >
-          <Music size={15} />
-          <span>Play Celebration Melody</span>
+          {playing ? (
+            <>
+              <Pause size={15} />
+              <span>Stop / Pause Music</span>
+              <span className="story-btn__soundwave" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </span>
+            </>
+          ) : (
+            <>
+              <Music size={15} />
+              <span>Resume Celebration Music</span>
+            </>
+          )}
         </button>
 
         <button

@@ -11,23 +11,19 @@ import { BalloonsStory } from './story/BalloonsStory'
 import { LetterStory } from './story/LetterStory'
 import { FinaleStory } from './story/FinaleStory'
 import { BIRTHDAY } from './config'
-import { initMusic, playMusic, useMusic } from './lib/music'
-import { Music, Sparkles } from 'lucide-react'
-import { sfx } from './lib/sfx'
+import { initMusic, playMusic } from './lib/music'
 import './styles/experience.css'
 import './styles/story.css'
 
 export default function App() {
-  const { playing } = useMusic()
-
   useEffect(() => {
     document.title = `${BIRTHDAY.firstName} · Happy 25th Birthday!`
     initMusic(BIRTHDAY.music.src, BIRTHDAY.music.title)
 
-    // Attempt autoplay immediately on page load
+    // Attempt direct autoplay immediately on page load
     void playMusic().catch(() => {})
 
-    // Guarantee audio starts on ANY first user touch, tap, scroll or click
+    // Guarantee audio starts on ANY first user touch, tap, scroll, wheel, or click
     const handleFirstInteraction = () => {
       void playMusic()
       cleanup()
@@ -38,6 +34,7 @@ export default function App() {
       window.removeEventListener('touchstart', handleFirstInteraction)
       window.removeEventListener('click', handleFirstInteraction)
       window.removeEventListener('scroll', handleFirstInteraction)
+      window.removeEventListener('wheel', handleFirstInteraction)
       window.removeEventListener('keydown', handleFirstInteraction)
     }
 
@@ -45,6 +42,7 @@ export default function App() {
     window.addEventListener('touchstart', handleFirstInteraction, { passive: true })
     window.addEventListener('click', handleFirstInteraction, { passive: true })
     window.addEventListener('scroll', handleFirstInteraction, { passive: true })
+    window.addEventListener('wheel', handleFirstInteraction, { passive: true })
     window.addEventListener('keydown', handleFirstInteraction, { passive: true })
 
     return cleanup
@@ -87,23 +85,6 @@ export default function App() {
         <LetterStory />
         <FinaleStory onScrollToTop={scrollToTop} />
       </main>
-
-      {/* Floating Music Prompt if autoplay is pending gesture */}
-      {!playing && (
-        <button
-          type="button"
-          className="story-music-prompt"
-          onClick={() => {
-            sfx.sparkle()
-            void playMusic()
-          }}
-          aria-label="Tap to play celebration melody"
-        >
-          <Music size={15} />
-          <span>Tap anywhere to start celebration music</span>
-          <Sparkles size={13} />
-        </button>
-      )}
 
       {/* Luxury Gold Corner Frame Accents */}
       <div className="frame" aria-hidden="true">
