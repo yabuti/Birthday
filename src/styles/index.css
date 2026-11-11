@@ -16,8 +16,8 @@
   --gold-light: #f9e7be;
   --gold-deep: #a17b3c;
   --gold-gradient: linear-gradient(135deg, #f9e7be 0%, #d7ab66 45%, #b5853e 100%);
-  --serif: 'Cormorant Garamond', 'Playfair Display', Didot, 'Bodoni MT', Georgia, serif;
-  --sans: 'Jost', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --edge: clamp(16px, 3.2vw, 44px);
   --topbar-h: clamp(58px, 8vh, 84px);

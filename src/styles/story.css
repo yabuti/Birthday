@@ -29,8 +29,9 @@
   --border-gold: rgba(56, 189, 248, 0.35);
   --border-gold-strong: rgba(2, 132, 199, 0.45);
   --border-gold-light: rgba(125, 211, 252, 0.45);
-  --serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --sans: 'Jost', 'Inter', system-ui, sans-serif;
+  --serif: 'Playfair Display', 'Cinzel', Georgia, serif;
+  --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --script: 'Great Vibes', cursive;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1222,10 +1223,10 @@ body {
 }
 
 .story-letter-paper__signature {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--gold-core);
+  font-family: var(--script);
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--blue-deep);
 }
 
 /* ---------- Section 7: Grand Finale ---------- */
