@@ -1,0 +1,537 @@
+/* ============================================================
+   UI primitives — buttons, rail, nav, headings, ornament
+   ============================================================ */
+
+/* ---------- gold button ---------- */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 14px 24px;
+  border: 1px solid rgba(215, 171, 102, 0.46);
+  background: linear-gradient(120deg, rgba(215, 171, 102, 0.15), rgba(215, 171, 102, 0.035));
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  pointer-events: auto;
+  transition: border-color 0.55s var(--ease), background 0.55s var(--ease), color 0.55s var(--ease),
+    transform 0.4s var(--ease), box-shadow 0.55s var(--ease);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(215, 171, 102, 0.14);
+  pointer-events: none;
+  transition: border-color 0.5s var(--ease);
+}
+
+.btn:hover:not(:disabled) {
+  border-color: rgba(249, 231, 190, 0.85);
+  color: #fff8ea;
+  box-shadow: 0 12px 40px -18px rgba(215, 171, 102, 0.65);
+}
+
+.btn:hover:not(:disabled)::before {
+  border-color: rgba(249, 231, 190, 0.3);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.995);
+}
+
+.btn:disabled {
+  opacity: 0.36;
+  cursor: default;
+}
+
+.btn:focus-visible {
+  outline: 1px solid var(--gold-light);
+  outline-offset: 4px;
+}
+
+.btn__label {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.btn__icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  color: var(--gold-light);
+  transition: opacity 0.3s var(--ease), filter 0.3s var(--ease);
+}
+
+.btn:hover:not(:disabled) .btn__icon {
+  filter: drop-shadow(0 0 4px var(--gold-light));
+}
+
+.btn__sheen {
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: -40%;
+  width: 38%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 247, 228, 0.28) 45%,
+    rgba(255, 247, 228, 0.5) 50%,
+    rgba(255, 247, 228, 0.28) 55%,
+    transparent
+  );
+  transform: translateX(-160%) skewX(-18deg);
+  pointer-events: none;
+}
+
+.btn:hover:not(:disabled) .btn__sheen {
+  animation: sheen-sweep 1.4s var(--ease) forwards;
+}
+
+@keyframes sheen-sweep {
+  to {
+    transform: translateX(420%) skewX(-18deg);
+  }
+}
+
+.btn--primary {
+  padding: 17px 32px;
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  background: linear-gradient(120deg, rgba(215, 171, 102, 0.26), rgba(215, 171, 102, 0.06));
+}
+
+.btn--ghost {
+  border-color: rgba(253, 246, 239, 0.16);
+  background: transparent;
+  font-size: 9px;
+  letter-spacing: 0.26em;
+  padding: 11px 16px;
+}
+
+.btn--ghost::before {
+  display: none;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  border-color: rgba(215, 171, 102, 0.6);
+}
+
+.btn--quiet {
+  border: 0;
+  background: none;
+  padding: 6px 0;
+  font-size: 9px;
+  letter-spacing: 0.26em;
+  color: var(--gold-soft);
+}
+
+.btn--quiet::before {
+  display: none;
+}
+
+.btn--quiet:hover:not(:disabled) {
+  color: var(--gold-light);
+  box-shadow: none;
+}
+
+.btn--enter {
+  padding: 19px 38px;
+}
+
+.btn--enter::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px solid rgba(215, 171, 102, 0.22);
+  animation: enter-pulse 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes enter-pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.16);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.16);
+  }
+}
+
+/* ---------- heading word reveal ---------- */
+
+.heading {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.26em;
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
+.heading__word {
+  display: inline-block;
+}
+
+.heading__mask {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+  vertical-align: bottom;
+}
+
+.heading__inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+.heading--gold .heading__inner {
+  background: linear-gradient(
+    100deg,
+    #f9e7be 0%,
+    #d7ab66 20%,
+    #fff4d8 42%,
+    #c1913f 62%,
+    #f4d9a5 82%,
+    #f9e7be 100%
+  );
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-sheen 11s linear infinite;
+}
+
+.heading--italic {
+  font-style: italic;
+}
+
+@keyframes gold-sheen {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 240% 50%;
+  }
+}
+
+/* ---------- ornament ---------- */
+
+.ornament {
+  width: clamp(120px, 16vw, 190px);
+  height: 10px;
+  color: var(--gold);
+  opacity: 0.75;
+}
+
+/* ---------- audio toggle ---------- */
+
+.audio-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(253, 246, 239, 0.14);
+  border-radius: 50%;
+  background: rgba(20, 8, 14, 0.25);
+  color: rgba(253, 246, 239, 0.66);
+  cursor: pointer;
+  transition: color 0.4s var(--ease), border-color 0.4s var(--ease), background 0.4s var(--ease);
+}
+
+.audio-toggle:hover {
+  color: var(--gold-light);
+  border-color: rgba(215, 171, 102, 0.5);
+}
+
+.audio-toggle:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ---------- progress rail ---------- */
+
+.rail {
+  position: fixed;
+  right: var(--edge);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 32;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.rail ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rail ol::before {
+  content: '';
+  position: absolute;
+  right: 3px;
+  top: 9px;
+  bottom: 9px;
+  width: 1px;
+  background: rgba(253, 246, 239, 0.13);
+}
+
+.rail__fill {
+  position: absolute;
+  right: 3px;
+  top: 9px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold-light), var(--gold));
+  box-shadow: 0 0 10px rgba(215, 171, 102, 0.55);
+  transition: height 1s var(--ease);
+}
+
+.rail button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 0;
+  width: 24px;
+  background: none;
+  border: 0;
+  color: rgba(253, 246, 239, 0.4);
+  cursor: pointer;
+}
+
+.rail button:disabled {
+  opacity: 0.42;
+  cursor: default;
+}
+
+.rail__label {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) translateX(6px);
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(22, 9, 16, 0.85);
+  border: 1px solid rgba(215, 171, 102, 0.25);
+  backdrop-filter: blur(6px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.rail button:hover .rail__label,
+.rail button:focus-visible .rail__label,
+.rail button[aria-current='step'] .rail__label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  color: var(--gold-light);
+}
+
+.rail__dot {
+  position: relative;
+  z-index: 1;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid rgba(253, 246, 239, 0.34);
+  background: #1b0a13;
+  transition: transform 0.45s var(--ease), background 0.45s var(--ease), border-color 0.45s var(--ease),
+    box-shadow 0.45s var(--ease);
+}
+
+.rail button[aria-current='step'] .rail__dot {
+  background: var(--gold);
+  border-color: var(--gold-light);
+  box-shadow: 0 0 0 4px rgba(215, 171, 102, 0.13), 0 0 14px rgba(215, 171, 102, 0.7);
+  transform: scale(1.25);
+}
+
+.rail button:hover .rail__dot {
+  border-color: rgba(249, 231, 190, 0.8);
+}
+
+/* ---------- navigation ---------- */
+
+.nav {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: auto;
+  margin-right: clamp(24px, 4vw, 62px);
+}
+
+.nav__hint {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  color: rgba(232, 200, 148, 0.82);
+  text-align: right;
+  animation: hint-in 0.8s var(--ease) both;
+}
+
+@keyframes hint-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.nav__row {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 26px);
+}
+
+.nav__prev,
+.nav__next {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 0;
+  border: 0;
+  background: none;
+  color: rgba(253, 246, 239, 0.86);
+  font-family: var(--sans);
+  font-size: 9.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.4s var(--ease), opacity 0.4s var(--ease);
+}
+
+.nav__prev:hover:not(:disabled),
+.nav__next:hover:not(:disabled) {
+  color: var(--gold-light);
+}
+
+.nav__prev:disabled,
+.nav__next:disabled {
+  opacity: 0.24;
+  cursor: default;
+}
+
+.nav__prev:focus-visible,
+.nav__next:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.nav__next {
+  color: var(--gold-soft);
+}
+
+.nav__count {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: rgba(253, 246, 239, 0.38);
+}
+
+.nav__count i {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: rgba(253, 246, 239, 0.24);
+}
+
+@media (max-width: 820px) {
+  .rail {
+    top: 74px;
+    left: 0;
+    right: 0;
+    transform: none;
+    justify-content: center;
+  }
+
+  .rail ol {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .rail ol::before,
+  .rail__fill {
+    display: none;
+  }
+
+  .rail button {
+    padding: 6px 1px;
+  }
+
+  .rail__label {
+    display: none;
+  }
+
+  .rail__dot {
+    width: 5px;
+    height: 5px;
+    border-color: rgba(253, 246, 239, 0.28);
+    background: rgba(27, 10, 19, 0.7);
+  }
+
+  .rail button[aria-current='step'] .rail__dot {
+    transform: scale(1.4);
+  }
+
+  .nav {
+    align-items: center;
+    margin-right: 0;
+    gap: 8px;
+  }
+
+  .nav__hint {
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .nav__row {
+    gap: 16px;
+  }
+
+  .nav__prev,
+  .nav__next {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+  }
+}
