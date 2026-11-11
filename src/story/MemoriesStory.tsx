@@ -85,7 +85,7 @@ export function MemoriesStory() {
               <p className="story-lightbox__desc">{activePhoto.description}</p>
               <div className="story-lightbox__tag">
                 <Heart size={12} fill="currentColor" />
-                <span>Yeabsera · Golden 25</span>
+                <span>Yabye · Golden 25</span>
               </div>
             </div>
 

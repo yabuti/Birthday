@@ -48,7 +48,7 @@ export function HeroStory({ onScrollDown }: HeroStoryProps) {
           ) : (
             <div className="story-hero__portrait-placeholder">
               <span className="story-hero__portrait-monogram">Y</span>
-              <span>YEABSERA</span>
+              <span>YABYE</span>
             </div>
           )}
           <div className="story-hero__portrait-shimmer" aria-hidden="true" />

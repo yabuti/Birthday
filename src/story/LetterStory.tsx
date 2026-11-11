@@ -40,7 +40,7 @@ export function LetterStory() {
                 <span className="story-envelope__seal-prompt">Tap to open letter</span>
               </div>
             </div>
-            <p className="story-envelope__to">For My Dearest Yeabsera</p>
+            <p className="story-envelope__to">For My Dearest Yabye</p>
           </div>
         ) : (
           <article className="story-letter-paper">

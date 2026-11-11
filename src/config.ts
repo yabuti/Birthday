@@ -71,8 +71,8 @@ export interface BirthdayConfig {
 }
 
 export const BIRTHDAY: BirthdayConfig = {
-  name: 'Yeabsera Terefe',
-  firstName: 'Yeabsera',
+  name: 'Yabye Terefe',
+  firstName: 'Yabye',
   age: 25,
 
   welcomeSubtitle: 'A beautiful celebration for a beautiful soul.',
@@ -81,16 +81,16 @@ export const BIRTHDAY: BirthdayConfig = {
   finaleNote: 'Twenty-five years of light — and the best is still ahead.',
 
   letter: {
-    prompt: 'Yeabsera, someone has a special message for you!',
-    salutation: 'My dearest Yeabsera,',
+    prompt: 'Yabye, someone has a special message for you!',
+    salutation: 'My dearest Yabye,',
     paragraphs: [
-      'Today we celebrate 25 beautiful years of you!',
+      'Today we celebrate 25 beautiful years of you, my sweetest Yabye!',
       'I hope this new chapter brings you endless happiness, unforgettable memories, exciting opportunities and dreams that become reality.',
       'May you always find reasons to smile, courage to chase your dreams, and people who remind you how special you are.',
       'You deserve love, peace, success and all the beautiful things life has to offer.',
-      'Happy 25th Birthday!',
+      'Happy 25th Birthday, Yabye!',
     ],
-    closing: 'Forever with love.',
+    closing: 'Forever with all my love.',
   },
 
   music: {
@@ -111,11 +111,11 @@ export const BIRTHDAY: BirthdayConfig = {
   },
 
   balloonMessages: [
-    'Keep shining, Yeabsera! ✨',
-    'You deserve all the happiness in the world! 💖',
+    'Keep shining, Yabye! ✨',
+    'You deserve all the happiness in the world, Yabye! 💖',
     '25 looks absolutely stunning on you! 👑',
-    'Never stop chasing your beautiful dreams! 🌸',
-    'Your best chapter is just beginning! 🌟',
+    'Never stop chasing your beautiful dreams, my love! 🌸',
+    'Your best chapter is just beginning, Yabye! 🌟',
   ],
 
   photos: [

@@ -54,7 +54,7 @@ export function FinaleStory({ onScrollToTop }: FinaleStoryProps) {
 
         <div className="story-finale__signature">
           <Heart size={12} fill="currentColor" className="story-finale__heart" />
-          <span>Created with all my heart for Yeabsera · Golden 25</span>
+          <span>Created with all my heart for Yabye · Golden 25</span>
         </div>
       </div>
     </footer>

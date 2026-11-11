@@ -138,7 +138,7 @@ export function WelcomeScene() {
                 ) : (
                   <div className="portrait-card__placeholder">
                     <span className="portrait-card__monogram">Y</span>
-                    <span className="portrait-card__label">YEABSERA</span>
+                    <span className="portrait-card__label">YABYE</span>
                   </div>
                 )}
                 <div className="portrait-card__shimmer" aria-hidden="true" />
