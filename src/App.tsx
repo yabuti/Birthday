@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { FloatingPetals } from './components/FloatingPetals'
+import { ClickSparkles } from './components/ClickSparkles'
 import { StoryNav } from './story/StoryNav'
 import { HeroStory } from './story/HeroStory'
 import { WishesStory } from './story/WishesStory'
@@ -69,6 +70,7 @@ export default function App() {
 
       {/* Floating Rose Petals & Golden Stardust */}
       <FloatingPetals />
+      <ClickSparkles />
 
       {/* Sticky Navigation Bar */}
       <StoryNav />

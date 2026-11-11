@@ -9,7 +9,7 @@ export function WishesStory() {
       text: 'The kind of smile that brightens any room, melts away worries, and makes everyone around you feel cherished.',
     },
     {
-      icon: <Heart size={20} className="wish-card__icon wish-card__icon--rose" />,
+      icon: <Heart size={20} className="wish-card__icon wish-card__icon--blue" />,
       title: 'Your Beautiful Heart',
       text: 'Thoughtful, compassionate, and full of quiet grace. You bring genuine warmth everywhere you go.',
     },

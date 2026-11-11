@@ -17,11 +17,11 @@ export function BalloonsStory() {
   }
 
   const colors = [
-    { bg: '#fcdfe6', border: '#e89fb1', string: '#d98ca0' },
-    { bg: '#faedd2', border: '#e6be75', string: '#d4ab66' },
-    { bg: '#f8e0d5', border: '#e3ad9c', string: '#c98a77' },
-    { bg: '#f7d6e0', border: '#d887a0', string: '#8e3f55' },
-    { bg: '#fff0db', border: '#eec78e', string: '#e5be82' },
+    { bg: '#dbeafe', border: '#7dd3fc', string: '#38bdf8' },
+    { bg: '#e0f2fe', border: '#38bdf8', string: '#0284c7' },
+    { bg: '#eef2ff', border: '#a5b4fc', string: '#6366f1' },
+    { bg: '#f0fdfa', border: '#5eead4', string: '#14b8a6' },
+    { bg: '#fef3c7', border: '#fcd34d', string: '#d97706' },
   ]
 
   return (

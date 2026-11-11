@@ -99,15 +99,15 @@ export const BIRTHDAY: BirthdayConfig = {
   },
 
   theme: {
-    ivory: '#fdf6ef',
-    blush: '#f4c9d3',
-    rose: '#d98ca0',
-    roseDeep: '#8e3f55',
+    ivory: '#f0f7ff',
+    blush: '#bae6fd',
+    rose: '#7dd3fc',
+    roseDeep: '#0284c7',
     gold: '#d7ab66',
     goldSoft: '#e8c894',
     goldLight: '#f9e7be',
-    wine: '#1b0a13',
-    wine2: '#2a1020',
+    wine: '#081a30',
+    wine2: '#0f2744',
   },
 
   balloonMessages: [
