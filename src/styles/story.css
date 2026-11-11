@@ -1436,6 +1436,16 @@ body {
   overflow: hidden;
 }
 
+/* Grand Opening Confetti Cannon Canvas */
+.story-confetti-cannon-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 4;
+}
+
 .click-sparkle {
   position: absolute;
   border-radius: 50%;
